@@ -1,93 +1,150 @@
 
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import React, { Component } from 'react';
-import theme from './AppTheme';
+import React from 'react'; 
+import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
+// import { lightBlue, purple } from '@material-ui/core/colors';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent'; 
+import Typography from '@material-ui/core/Typography';
 
+const theme = createMuiTheme({
+    palette: { 
+        primary: {
+            main: '#027abb',
+        },
+        secondary: {
+            main: '#3C4042',
+        },
+    },
+});
 
-class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: ''
-        }
-    }
-    render() {
-        return (
-            <div className="App">
-                <MuiThemeProvider theme = {theme}>
-                    <div>
-                        
-                        <TextField
-                            hintText="Enter your Username"
-                            floatingLabelText="Username"
-                            onChange={(event, newValue) => this.setState({ username: newValue })}
-                        />
-                        <br />
-                        <TextField
-                            type="password"
-                            hintText="Enter your Password"
-                            floatingLabelText="Password"
-                            onChange={(event, newValue) => this.setState({ password: newValue })}
-                        />
-                        <br />
-                        <RaisedButton label="Submit" primary={true} style = {style} color = "primary" onClick={(event) => {
-                            if(this.handleValidation())
-                                this.handleClick(event)
-                            else 
-                                alert("Enter a username")}} />
-                    </div>
-                </MuiThemeProvider>
-            </div>
-        );
-    }
-
-
-    handleClick(event) {
-        //alert("Click event called");
-    }
-
-
-    handleValidation() {
-        let username = this.state.username;
-        let password = this.state.password;
-        let errors = {};
-        let formIsValid = true;
-
-        //Name
-        if (!username) {
-            formIsValid = false;
-            errors["username"] = "Cannot be empty";
-        }
-
-        if (typeof username !== "undefined") {
-            if (!username.match(/^[a-zA-Z]+$/)) {
-                formIsValid = false;
-                errors["username"] = "Only letters";
-            }
-        }
-
-    
-    
-        var re = new RegExp("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$");
-        var isOk = re.test(password);
-        if (isOk) {
-          
-        this.setState({ password: password });
-        } else {
-            alert('Enter a valid password');
-        }
-       
-        return formIsValid;
-    }
-}
-const style = {
-    margin: 15,
+const styles = {
+    authWrapper: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+    },
+    row: {
+        height: '100%',
+    },
 };
 
+function Login(props) { 
+    const { classes } = props;
+        return (
+        <div className={classes.authWrapper}>
+            <MuiThemeProvider theme = {theme}>
+                <Grid className={classes.row}
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center" 
+                    >
+                    <Grid item xs={10}> 
+                        <Card>
+                            <CardContent>
+                            <Grid container>
+                                <Grid item xs={6}>
+                                <Typography paragraph={true}>
+                                    Met je login gegevens krijg je toegang tot het IT-Button.com dashboard. Dit is jouw persoonlijke omgeving waar je alle informatie over je projecten kunt raadplegen, wijzigen en je software kunt testen. Heb je nog geen login? Klik dan hier!
+                                </Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <TextField 
+                                        label="E-mail"
+                                        placeholder="Enter your email address"
+                                        className="textField"
+                                        margin="normal"
+                                        color="primary"
+                                        // onChange={(event, newValue) => this.setState({ username: newValue })}
+                                    /> 
+                                    <br/>
+                                    <TextField
+                                        type="password" 
+                                        label="Password"
+                                        placeholder="Enter your Password"
+                                        className="textField"
+                                        color="primary"
+                                        // onChange={(event, newValue) => this.setState({ password: newValue })}
+                                    />
+                                    <br/>                                
+                                    <Button variant="contained" color = "primary">
+                                        Login
+                                    </Button> 
+                                    <Button variant="contained" color = "secondary">
+                                        secondary
+                                    </Button> 
+                                    {/* <Button variant="contained" color = "primary" onClick={(event) => {
+                                        if(this.handleValidation())
+                                            this.handleClick(event)
+                                        else 
+                                            alert("Enter a username")}}>
+                                        Login
+                                    </Button>  */}
+                                </Grid>
+                            </Grid> 
+                            </CardContent> 
+                        </Card>
+                    </Grid>
+                </Grid>  
+            </MuiThemeProvider>
+        </div>
+    );
+}
+
+// class Login extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             username: '',
+//             password: ''
+//         }
+//     }
+
+//     handleClick(event) {
+//         alert("Click event called");
+//     }
 
 
-export default Login;
+//     handleValidation() {
+//         let username = this.state.username;
+//         let password = this.state.password;
+//         let errors = {};
+//         let formIsValid = true;
+
+//         //Name
+//         if (!username) {
+//             formIsValid = false;
+//             errors["username"] = "Cannot be empty";
+//         }
+
+//         if (typeof username !== "undefined") {
+//             if (!username.match(/^[a-zA-Z]+$/)) {
+//                 formIsValid = false;
+//                 errors["username"] = "Only letters";
+//             }
+//         }
+
+    
+    
+//         var re = new RegExp("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$");
+//         var isOk = re.test(password);
+//         if (isOk) {
+          
+//         this.setState({ password: password });
+//         } else {
+//             alert('Enter a valid password');
+//         }
+       
+//         return formIsValid;
+//     }
+// }
+
+Login.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+export default withStyles(styles)(Login);
