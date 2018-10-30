@@ -44,10 +44,10 @@ const styles = {
         padding: '0!important',
     },
     authTop: {
-        padding: '30px 50px 15px',
+        padding: '30px 40px 15px',
     },
     authBottom: {
-        padding: '25px 50px 25px 50px',
+        padding: '25px 40px 25px 40px',
         background: '#E3F6FF',
     }
 };
@@ -67,7 +67,7 @@ function Login(props) {
                         <Card>
                             <CardContent className={classes.pa0}> 
                                 <div className={classes.authTop}> 
-                                    <Typography className={classes.mb2} variant="h3">
+                                    <Typography className={classes.mb2} variant="h4">
                                     Login to your dashboard.
                                     </Typography> 
 
@@ -115,7 +115,7 @@ function Login(props) {
                                         <div className={classes.authBottom}>
                                             <Grid 
                                                 container
-                                                direction="row"
+                                                direction="column"
                                                 justify="center"
                                                 alignItems="center">
                                                 <span className={classes.mb2}> Still no log-in details?</span>
