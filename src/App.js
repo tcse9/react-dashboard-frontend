@@ -49,11 +49,11 @@ class App extends Component {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="title" color="inherit">
-                Client Dashboard
+                Partner Dashboard
                 </Typography>
             </Toolbar>
         </AppBar>
-          
+        <div style={{margin: 100,}}>
         <Tabs value={value} onChange={this.handleChange}>
           <Tab label="New Requirement" />
           <Tab label="Projects" />
@@ -62,6 +62,8 @@ class App extends Component {
         {value === 0 && <TabContainer><TableView/></TabContainer>}
         {value === 1 && <TabContainer><TableView/></TabContainer>}
         {value === 2 && <TabContainer><TableView/></TabContainer>}
+        </div> 
+        
       </div>
     );
   }
