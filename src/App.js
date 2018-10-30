@@ -7,7 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
+import TableView from './Table'
 
 function TabContainer(props) {
   return (
@@ -41,10 +41,8 @@ class App extends Component {
   };
 
   render() {
-
     const { classes } = this.props;
     const { value } = this.state;
-
 
     return (
       <div className={classes.root}>
@@ -54,15 +52,16 @@ class App extends Component {
                 Client Dashboard
                 </Typography>
             </Toolbar>
-            <Tabs value={value} onChange={this.handleChange}>
-              <Tab label="New Requirement" />
-              <Tab label="Projects" />
-              <Tab label="Quotes" />
-            </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer>New Requirement</TabContainer>}
-        {value === 1 && <TabContainer>Projects</TabContainer>}
-        {value === 2 && <TabContainer>Quotes</TabContainer>}
+          
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="New Requirement" />
+          <Tab label="Projects" />
+          <Tab label="Quotes" />
+        </Tabs>
+        {value === 0 && <TabContainer><TableView/></TabContainer>}
+        {value === 1 && <TabContainer><TableView/></TabContainer>}
+        {value === 2 && <TabContainer><TableView/></TabContainer>}
       </div>
     );
   }
