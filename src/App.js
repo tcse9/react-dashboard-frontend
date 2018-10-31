@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -8,8 +9,7 @@ class App extends React.Component {
   render(){
     return(
       <div><Dashboard /></div>
-    );
-  }
-}
+
+
 
 export default App;
