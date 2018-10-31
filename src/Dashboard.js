@@ -89,10 +89,6 @@ class Dashboard extends React.Component {
         this.setState({ open: false });
     };
 
-    static navigationOptions = {
-        title: 'Details',
-      };
-
     render() {
         const { classes, theme } = this.props;
         const { open } = this.state;
@@ -146,7 +142,11 @@ class Dashboard extends React.Component {
 
                 </Drawer>
                 {/* Now for list ListView */}
-                <ListView />
+                <main className={classNames(classes.content, {
+                    [classes.contentShift]: open,
+                })}>
+                    <ListView />
+                </main>
             </div>
         );
     }

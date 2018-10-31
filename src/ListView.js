@@ -10,37 +10,8 @@ import ListViewCell from './TableCell';
 const drawerWidth = 240;
 
 const styles = theme => ({
-    root: {
-        display: 'flex',
-    },
-    appBar: {
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton: {
-        marginLeft: 12,
-        marginRight: 20,
-    },
-    hide: {
-        display: 'none',
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerWidth,
-    },
+
+    
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
@@ -48,22 +19,7 @@ const styles = theme => ({
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing.unit * 3,
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: -drawerWidth,
-    },
-    contentShift: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
-    },
+    
     authBottom: {
         height: '180px',
         padding: '10px 10px 10px 10px',
@@ -86,15 +42,13 @@ class ListView extends React.Component {
     state = {
         open: false,
     };
-    
-  render(){
-    const { classes, theme } = this.props;
-    const { open } = this.state;
-    return(
-      <div>
-          <main className={classNames(classes.content, {
-                        [classes.contentShift]: open,
-                    })}>
+
+    render() {
+        const { classes, theme } = this.props;
+        const { open } = this.state;
+        return (
+
+                <div>
                     <div className={classes.drawerHeader} />
                     <TableView component="th" scope="colume" padding="10">
                         {['New Requirement', 'Projects', 'Quotes', 'New Requirement', 'Projects'].map((text, index) => (
@@ -107,10 +61,10 @@ class ListView extends React.Component {
                             </div>
                         ))}
                     </TableView>
-                </main>
-      </div>
-    );
+                </div>
+
+        );
     }
-  }
+}
 
 export default withStyles(styles, { withTheme: true })(ListView);
