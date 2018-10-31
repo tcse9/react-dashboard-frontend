@@ -20,13 +20,6 @@ const styles = theme => ({
         justifyContent: 'flex-end',
     },
     
-    authBottom: {
-        height: '180px',
-        padding: '10px 10px 10px 10px',
-        background: '#f2f2f2',
-        border: '1px solid #C0C0C0',
-        overflow: 'hidden',
-    },
     headerTitle: {
         fontfamily: "catamaranlight",
         fontweight: 'bold',

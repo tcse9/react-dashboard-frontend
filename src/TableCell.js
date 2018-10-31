@@ -5,11 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     authBottom: {
-        height: '180px',
+        height: 'auto',
         padding: '10px 10px 10px 10px',
         background: '#f2f2f2',
         border: '1px solid #C0C0C0',
-
     },
     headerTitle: {
         fontfamily: "catamaranlight",
@@ -17,6 +16,12 @@ const styles = theme => ({
         fontsize: '20px',
         color: '#027abb !important',
         margin: 3,
+    },
+    cellBottom: {
+        height: 'auto',
+        padding: '10px 10px 10px 10px',
+        background: '#f2f2f2',
+        border: '1px solid #C0C0C0',
     },
 });
 
@@ -46,8 +51,9 @@ I would like to get in touch to discuss the steps that need to be taken and the 
 Sincerely,
 Mike Havers
  Alkondor Hengelo BV</p>
-                <div>
-                    <div>{this.props.userdata}</div>
+                <div className={classes.cellBottom}>
+                    <span>User data</span>
+                    <div>fasdfasd</div>
                 </div>
 
             </div>

@@ -17,7 +17,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListView from './ListView';
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const styles = theme => ({
     root: {
