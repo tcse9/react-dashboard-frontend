@@ -11,7 +11,7 @@ const drawerWidth = 240;
 
 const styles = theme => ({
 
-    
+
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
@@ -19,7 +19,7 @@ const styles = theme => ({
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
-    
+
     headerTitle: {
         fontfamily: "catamaranlight",
         fontweight: 'bold',
@@ -32,6 +32,16 @@ const styles = theme => ({
 
 class ListView extends React.Component {
 
+    constructor() {
+        super();
+
+        var today = new Date(),date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate().toLocaleString();
+        console.log(date);
+        this.state = {
+            date: date
+        };
+    }
+
     state = {
         open: false,
     };
@@ -41,20 +51,20 @@ class ListView extends React.Component {
         const { open } = this.state;
         return (
 
-                <div>
-                    <div className={classes.drawerHeader} />
-                    <TableView component="th" scope="colume" padding="10">
-                        {['New Requirement', 'Projects', 'Quotes', 'New Requirement', 'Projects'].map((text, index) => (
-                            <div>
-                                <TableRow hover="true">
-                                    <TableCell>
-                                        <ListViewCell></ListViewCell>
-                                    </TableCell>
-                                </TableRow>
-                            </div>
-                        ))}
-                    </TableView>
-                </div>
+            <div>
+                <div className={classes.drawerHeader} />
+                <TableView component="th" scope="colume" padding="10">
+                    {['New Requirement', 'Projects', 'Quotes', 'New Requirement', 'Projects'].map((text, index) => (
+                        <div>
+                            <TableRow hover="true">
+                                <TableCell>
+                                    <ListViewCell currentDate={this.state.date}></ListViewCell>
+                                </TableCell>
+                            </TableRow>
+                        </div>
+                    ))}
+                </TableView>
+            </div>
 
         );
     }
