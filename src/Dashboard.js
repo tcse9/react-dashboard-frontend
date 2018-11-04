@@ -79,7 +79,7 @@ const styles = theme => ({
 
 class Dashboard extends React.Component {
     state = {
-        open: false,
+        open: true,
     };
 
     handleDrawerOpen = () => {
@@ -148,6 +148,14 @@ class Dashboard extends React.Component {
                         </ListItem>
                     </List>
                     <Divider />
+                    <List>
+                        <ListItem button key="Settings" component="a" href='/dashboard'>
+                            <ListItemText primary="Settings" />
+                        </ListItem>
+                        <ListItem button key="Logout" component="a" href='/'>
+                            <ListItemText primary="Logout" />
+                        </ListItem>
+                    </List>
                 </Drawer>
                 {/* Now for list ListView */}
                 <main className={classNames(classes.content, {
