@@ -16,6 +16,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListView from './ListView';
+import Login from './Login';
 
 const drawerWidth = 280;
 
@@ -107,12 +108,17 @@ class Dashboard extends React.Component {
                             color="inherit"
                             aria-label="Open drawer"
                             onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, open && classes.hide)}>
+                            className={classNames(classes.menuButton, open && classes.hide)}
+                        >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" color="inherit" noWrap>
+                        <Typography 
+                            variant="h6" 
+                            color="inherit" 
+                            noWrap
+                        >
                             Client Dashboard
-            </Typography>
+                        </Typography>
                     </Toolbar>
                 </AppBar>
                 <Drawer
@@ -131,15 +137,17 @@ class Dashboard extends React.Component {
                     </div>
                     <Divider />
                     <List>
-                        {['New Requirement', 'Projects', 'Quotes'].map((text, index) => (
-                            <ListItem button key={text}>
-                                {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
+                        <ListItem button key="New Requirements" component="a" href='/dashboard'>
+                            <ListItemText primary="New Requirements" />
+                        </ListItem>
+                        <ListItem button key="Projects" component="a" href='/dashboard'>
+                            <ListItemText primary="Projects" />
+                        </ListItem>
+                        <ListItem button key="Quotes" component="a" href='/dashboard'>
+                            <ListItemText primary="Quotes" />
+                        </ListItem>
                     </List>
                     <Divider />
-
                 </Drawer>
                 {/* Now for list ListView */}
                 <main className={classNames(classes.content, {
@@ -151,7 +159,6 @@ class Dashboard extends React.Component {
         );
     }
 }
-
 
 Dashboard.propTypes = {
     classes: PropTypes.object.isRequired,

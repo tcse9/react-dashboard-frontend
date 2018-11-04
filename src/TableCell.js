@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
-
 class TableCell extends React.Component {
     state = {
         open: false,
@@ -23,10 +22,8 @@ Sincerely,
 Mike Havers
  Alkondor Hengelo BV</p>
                 <div className={classes.cellBottom}>
-                    
                     <span>Created Date: {currentDate} </span>
                 </div>
-
             </div>
         );
     }
