@@ -34,23 +34,19 @@ class ListView extends React.Component {
 
     constructor() {
         super();
-
-        var today = new Date(),date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate().toLocaleString();
-        console.log(date);
+        var open
+        var today = new Date(),date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         this.state = {
-            date: date
+            date: date,
+            open: false,
         };
     }
 
-    state = {
-        open: false,
-    };
 
     render() {
-        const { classes, theme } = this.props;
+        const { classes, theme,clickedIndex } = this.props;
         const { open } = this.state;
         return (
-
             <div>
                 <div className={classes.drawerHeader} />
                 <TableView component="th" scope="colume" padding="10">
@@ -58,7 +54,7 @@ class ListView extends React.Component {
                         <div>
                             <TableRow hover="true">
                                 <TableCell>
-                                    <ListViewCell currentDate={this.state.date}></ListViewCell>
+                                    <ListViewCell currentDate={(this.state.date)}></ListViewCell>
                                 </TableCell>
                             </TableRow>
                         </div>

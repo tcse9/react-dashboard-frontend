@@ -28,6 +28,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
+        background: '#027abb',
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -79,6 +80,7 @@ const styles = theme => ({
 class Dashboard extends React.Component {
     state = {
         open: false,
+        clickedIndex: 100,
     };
 
     handleDrawerOpen = () => {
@@ -132,10 +134,14 @@ class Dashboard extends React.Component {
                     <Divider />
                     <List>
                         {['New Requirement', 'Projects', 'Quotes'].map((text, index) => (
-                            <ListItem button key={text}>
+                            // <ListItem button key={text}>
+                            <ListItem button key={text} onClick = {(event) => this.handleItemClick(event,index)}>
                                 {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                                 <ListItemText primary={text} />
                             </ListItem>
+                            
+                            
+                        
                         ))}
                     </List>
                     <Divider />
@@ -145,12 +151,21 @@ class Dashboard extends React.Component {
                 <main className={classNames(classes.content, {
                     [classes.contentShift]: open,
                 })}>
-                    <ListView />
+                    <ListView clickedIndex = {this.state.clickedIndex}/>
                 </main>
             </div>
         );
     }
+    handleItemClick(event,index) {
+        console.log(index)
+        this.setState((prevState,props) => ({
+            clickedIndex: index
+        }), ()=> {
+            console.log(this.state.clickedIndex)
+        })
+    }
 }
+
 
 
 Dashboard.propTypes = {
