@@ -63,7 +63,15 @@ function SimpleTable(props) {
                                 <TableCell><h4>{row.project_name}</h4></TableCell>
                                 <TableCell><h4>$ {row.total_amount}</h4></TableCell>
                                 <TableCell><h4>{row.total_hour}</h4></TableCell>
-                                <TableCell><Button variant="contained" color="primary" className={classes.button}>{row.button}</Button>
+                                <TableCell>
+                                    <Button 
+                                        size="medium"
+                                        variant="contained" 
+                                        color="primary" 
+                                        className={classes.button}
+                                    >
+                                        {row.button}
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                         );
