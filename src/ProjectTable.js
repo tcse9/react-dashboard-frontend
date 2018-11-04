@@ -20,17 +20,16 @@ const styles = theme => ({
 });
 
 let id = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(project_id, project_name, total_amount, total_hour) {
   id += 1;
-  return { id, name, calories, fat, carbs, protein };
+  return { project_id, project_name, total_amount, total_hour };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(1792, 'Armor for Retail/Extern', 7000, 100),
+  createData(1792, 'Armor for Retail/Extern', 7000, 100),
+  createData(1792, 'Armor for Retail/Extern', 7000, 100),
+  createData(1792, 'Armor for Retail/Extern', 7000, 100),
 ];
 
 function SimpleTable(props) {
@@ -41,24 +40,20 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell numeric>Calories</TableCell>
-            <TableCell numeric>Fat (g)</TableCell>
-            <TableCell numeric>Carbs (g)</TableCell>
-            <TableCell numeric>Protein (g)</TableCell>
+            <TableCell>Project ID</TableCell>
+            <TableCell>Project Name</TableCell>
+            <TableCell>Total Amount</TableCell>
+            <TableCell>Total Hour</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => {
             return (
               <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell numeric>{row.calories}</TableCell>
-                <TableCell numeric>{row.fat}</TableCell>
-                <TableCell numeric>{row.carbs}</TableCell>
-                <TableCell numeric>{row.protein}</TableCell>
+                <TableCell>{row.project_id}</TableCell>
+                <TableCell>{row.project_name}</TableCell>
+                <TableCell>{row.total_amount}</TableCell>
+                <TableCell>{row.total_hour}</TableCell>
               </TableRow>
             );
           })}

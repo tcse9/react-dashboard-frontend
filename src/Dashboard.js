@@ -118,7 +118,7 @@ class Dashboard extends React.Component {
                             color="inherit" 
                             noWrap
                         >
-                            Client Dashboard
+                            Client Dashboard: New Requirements
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -144,13 +144,13 @@ class Dashboard extends React.Component {
                         <ListItem button key="Projects" component="a" href='/Projects'>
                             <ListItemText primary="Projects" />
                         </ListItem>
-                        <ListItem button key="Quotes" component="a" href='/dashboard'>
+                        <ListItem button key="Quotes" component="a" href='#'>
                             <ListItemText primary="Quotes" />
                         </ListItem>
                     </List>
                     <Divider />
                     <List>
-                        <ListItem button key="Settings" component="a" href='/dashboard'>
+                        <ListItem button key="Settings" component="a" href='#'>
                             <ListItemText primary="Settings" />
                         </ListItem>
                         <ListItem button key="Logout" component="a" href='/'>
