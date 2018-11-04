@@ -17,6 +17,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListView from './ListView';
 import Login from './Login';
+import ProjectTable from './ProjectTable';
 
 const drawerWidth = 280;
 
@@ -78,7 +79,7 @@ const styles = theme => ({
     },
 });
 
-class Dashboard extends React.Component {
+class Projects extends React.Component {
     state = {
         open: true,
     };
@@ -162,16 +163,16 @@ class Dashboard extends React.Component {
                 <main className={classNames(classes.content, {
                     [classes.contentShift]: open,
                 })}>
-                    <ListView />
+                    <ProjectTable />
                 </main>
             </div>
         );
     }
 }
 
-Dashboard.propTypes = {
+Projects.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(Dashboard);
+export default withStyles(styles, { withTheme: true })(Projects);
