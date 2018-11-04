@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 
 class TableCell extends React.Component {
     state = {
@@ -23,6 +24,8 @@ Mike Havers
  Alkondor Hengelo BV</p>
                 <div className={classes.cellBottom}>
                     <span>Created Date: {currentDate} </span>
+                    <Button variant="contained" color="primary" className={classes.button}>View Details</Button>
+
                 </div>
             </div>
         );
@@ -32,6 +35,7 @@ Mike Havers
 
 const styles = theme => ({
     authBottom: {
+        position: 'relative',
         height: 'auto',
         padding: '10px 10px 10px 10px',
         background: '#f2f2f2',
@@ -48,7 +52,15 @@ const styles = theme => ({
         height: 'auto',
         padding: '10px 10px 10px 10px',
         background: '#f2f2f2',
-        border: '1px solid #C0C0C0',
+        border: '0px solid #C0C0C0',
+        color: '#027abb'
+    },
+    button: {
+        margin: theme.spacing.unit,
+        position: 'absolute',
+        background: '#027abb',
+        right: '10px',
+        bottom: '5px',
     },
 });
 
